@@ -1,0 +1,50 @@
+name: Render charts & stats
+
+on:
+  workflow_dispatch:   # <-- enables the "Run workflow" button
+
+permissions:
+  contents: write      # <-- allows the bot to commit/push results into docs/
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install libraries
+        run: |
+          pip install pandas numpy matplotlib seaborn statsmodels scipy tabulate
+
+      - name: Show repo tree (debug)
+        run: |
+          echo "== top ==" && ls -la
+          echo "== docs ==" && ls -la docs || true
+          echo "== 06-stats-and-modeling/src ==" && ls -la 06-stats-and-modeling/src || true
+
+      - name: Set CSV path
+        run: |
+          echo "SURVEY_CSV=docs/healthcare_2015_2024_patient_year.csv" >> $GITHUB_ENV
+
+      - name: Run statistics
+        run: |
+          python 06-stats-and-modeling/src/run_stats.py
+          echo "== wrote files ==" && ls -la docs | grep -E 'desc_stats|corr_matrix|heatmap|regression|anova|ttest' || true
+
+      - name: Commit updated outputs
+        env:
+          REPO: ${{ github.repository }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name  "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add docs/*.md docs/*.csv docs/*.png || true
+          git commit -m "Refresh statistical outputs" || echo "No changes to commit"
+          git remote set-url origin "https://x-access-token:${TOKEN}@github.com/${REPO}.git"
+          git push origin HEAD:main
