@@ -1,15 +1,10 @@
-# OLS regression: total cost
-
-Dependent variable: `total_cost`
-
-```
                             OLS Regression Results                            
 ==============================================================================
 Dep. Variable:             total_cost   R-squared:                       0.961
 Model:                            OLS   Adj. R-squared:                  0.961
 Method:                 Least Squares   F-statistic:                 1.031e+04
 Date:                Sun, 16 Nov 2025   Prob (F-statistic):               0.00
-Time:                        03:28:21   Log-Likelihood:                -44697.
+Time:                        04:00:06   Log-Likelihood:                -44697.
 No. Observations:                5513   AIC:                         8.942e+04
 Df Residuals:                    5499   BIC:                         8.952e+04
 Df Model:                          13                                         
@@ -42,4 +37,3 @@ Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 [2] The condition number is large, 1.22e+05. This might indicate that there are
 strong multicollinearity or other numerical problems.
-```
