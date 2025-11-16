@@ -9,11 +9,17 @@ This portfolio demonstrates a 10-year (2015–2024) chronic-care dataset with de
 **logistic regression for readmissions**, **OLS for total cost**, **ANOVA**, and reproducible charts via GitHub Actions.
 
 <div style="margin: 1rem 0;">
-  <a class="btn" href="{{ site.github.repository_url }}">View on GitHub</a>
-  <a class="btn" href="#dataset">Explore dataset</a>
-  <a class="btn" href="#analysis">See analysis</a>
-  <a class="btn" href="https://www.linkedin.com/in/derrick-dzormeku-mba-75288644" target="_blank" rel="noopener">LinkedIn</a>
-  <a class="btn" href="mailto:d.double76@icloud.com?subject=Portfolio%20inquiry%20%E2%80%93%20Derrick%20Dzormeku">Email me</a>
+  - <a class="port-btn" href="...">View on GitHub</a>
++ <a class="btn" href="...">View on GitHub</a>
+
+- <a class="port-btn" href="#projects">Explore My Projects</a>
++ <a class="btn" href="#projects">Explore My Projects</a>
+
+- <a class="port-btn" href="resume.pdf">Résumé</a>
++ <a class="btn" href="resume.pdf">Résumé</a>
+
+- <a class="port-btn" href="https://www.linkedin.com/in/derrick-dzormeku-mba-75288644">LinkedIn</a>
++ <a class="btn" href="https://www.linkedin.com/in/derrick-dzormeku-mba-75288644">LinkedIn</a>
 </div>
 
 ---
