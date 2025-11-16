@@ -1,38 +1,272 @@
-# Descriptive statistics
-
-|                      |     n |      mean |       sd |     min |       p25 |       p50 |       p75 |       max |
-|:---------------------|------:|----------:|---------:|--------:|----------:|----------:|----------:|----------:|
-| patient_id           | 30000 | 11500.5   |  866.04  | 10001   | 10750.8   | 11500.5   | 12250.2   | 13000     |
-| year                 | 30000 |  2019.5   |    2.872 |  2015   |  2017     |  2019.5   |  2022     |  2024     |
-| age                  | 30000 |    61.916 |   16.406 |    30   |    48     |    62     |    76     |    94     |
-| zip_ses_index        | 30000 |    50.111 |   15.003 |     0   |    40.15  |    50.106 |    60.107 |   100     |
-| diabetes_flag        | 30000 |     0.224 |    0.417 |     0   |     0     |     0     |     0     |     1     |
-| heart_failure_flag   | 30000 |     0.103 |    0.304 |     0   |     0     |     0     |     0     |     1     |
-| copd_flag            | 30000 |     0.132 |    0.338 |     0   |     0     |     0     |     0     |     1     |
-| smoker_flag          | 30000 |     0.182 |    0.386 |     0   |     0     |     0     |     0     |     1     |
-| bmi                  | 30000 |    28.476 |    4.499 |    17   |    25.408 |    28.456 |    31.527 |    45.974 |
-| sbp                  | 30000 |   125.816 |   12.314 |    90   |   117.534 |   125.743 |   134.066 |   178.41  |
-| dbp                  | 30000 |    79.968 |    7.958 |    50   |    74.617 |    79.915 |    85.348 |   115.876 |
-| hba1c                | 30000 |     5.836 |    0.767 |     4.5 |     5.34  |     5.621 |     6.032 |     9.388 |
-| outpatient_visits    | 30000 |     3.547 |    2.018 |     0   |     2     |     3     |     5     |    15     |
-| telehealth_visits    | 30000 |     0.365 |    0.656 |     0   |     0     |     0     |     1     |     5     |
-| ed_visits            | 30000 |     0.587 |    0.814 |     0   |     0     |     0     |     1     |     6     |
-| inpatient_admissions | 30000 |     0.415 |    0.683 |     0   |     0     |     0     |     1     |     6     |
-| care_mgmt_enrolled   | 30000 |     0.131 |    0.337 |     0   |     0     |     0     |     0     |     1     |
-| wearable_steps_avg   |  5513 |  7510.93  | 2033.83  |  1500   |  6155.8   |  7491.18  |  8882     | 15042     |
-| genai_triage_flag    | 30000 |     0.07  |    0.255 |     0   |     0     |     0     |     0     |     1     |
-| any_30d_readmit      | 30000 |     0.081 |    0.273 |     0   |     0     |     0     |     0     |     1     |
-| high_risk_flag       | 30000 |     0.112 |    0.315 |     0   |     0     |     0     |     0     |     1     |
-| total_cost           | 30000 |  3441.96  | 4184.34  |     0   |   546.224 |  1368.32  |  6068.62  | 38009.7   |
-
-
+<h1>Descriptive statistics</h1>
+<div style='max-width:100%; overflow-x:auto; padding:6px; border:1px solid #e5e7eb; border-radius:8px;'>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n</th>
+      <th>mean</th>
+      <th>sd</th>
+      <th>min</th>
+      <th>p25</th>
+      <th>p50</th>
+      <th>p75</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>patient_id</th>
+      <td>30000.0</td>
+      <td>11500.500</td>
+      <td>866.040</td>
+      <td>10001.0</td>
+      <td>10750.750</td>
+      <td>11500.500</td>
+      <td>12250.250</td>
+      <td>13000.000</td>
+    </tr>
+    <tr>
+      <th>year</th>
+      <td>30000.0</td>
+      <td>2019.500</td>
+      <td>2.872</td>
+      <td>2015.0</td>
+      <td>2017.000</td>
+      <td>2019.500</td>
+      <td>2022.000</td>
+      <td>2024.000</td>
+    </tr>
+    <tr>
+      <th>age</th>
+      <td>30000.0</td>
+      <td>61.916</td>
+      <td>16.406</td>
+      <td>30.0</td>
+      <td>48.000</td>
+      <td>62.000</td>
+      <td>76.000</td>
+      <td>94.000</td>
+    </tr>
+    <tr>
+      <th>zip_ses_index</th>
+      <td>30000.0</td>
+      <td>50.111</td>
+      <td>15.003</td>
+      <td>0.0</td>
+      <td>40.150</td>
+      <td>50.106</td>
+      <td>60.107</td>
+      <td>100.000</td>
+    </tr>
+    <tr>
+      <th>diabetes_flag</th>
+      <td>30000.0</td>
+      <td>0.224</td>
+      <td>0.417</td>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>heart_failure_flag</th>
+      <td>30000.0</td>
+      <td>0.103</td>
+      <td>0.304</td>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>copd_flag</th>
+      <td>30000.0</td>
+      <td>0.132</td>
+      <td>0.338</td>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>smoker_flag</th>
+      <td>30000.0</td>
+      <td>0.182</td>
+      <td>0.386</td>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>bmi</th>
+      <td>30000.0</td>
+      <td>28.476</td>
+      <td>4.499</td>
+      <td>17.0</td>
+      <td>25.408</td>
+      <td>28.456</td>
+      <td>31.527</td>
+      <td>45.974</td>
+    </tr>
+    <tr>
+      <th>sbp</th>
+      <td>30000.0</td>
+      <td>125.816</td>
+      <td>12.314</td>
+      <td>90.0</td>
+      <td>117.534</td>
+      <td>125.743</td>
+      <td>134.066</td>
+      <td>178.410</td>
+    </tr>
+    <tr>
+      <th>dbp</th>
+      <td>30000.0</td>
+      <td>79.968</td>
+      <td>7.958</td>
+      <td>50.0</td>
+      <td>74.617</td>
+      <td>79.915</td>
+      <td>85.348</td>
+      <td>115.876</td>
+    </tr>
+    <tr>
+      <th>hba1c</th>
+      <td>30000.0</td>
+      <td>5.836</td>
+      <td>0.767</td>
+      <td>4.5</td>
+      <td>5.340</td>
+      <td>5.621</td>
+      <td>6.032</td>
+      <td>9.388</td>
+    </tr>
+    <tr>
+      <th>outpatient_visits</th>
+      <td>30000.0</td>
+      <td>3.547</td>
+      <td>2.018</td>
+      <td>0.0</td>
+      <td>2.000</td>
+      <td>3.000</td>
+      <td>5.000</td>
+      <td>15.000</td>
+    </tr>
+    <tr>
+      <th>telehealth_visits</th>
+      <td>30000.0</td>
+      <td>0.365</td>
+      <td>0.656</td>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+      <td>5.000</td>
+    </tr>
+    <tr>
+      <th>ed_visits</th>
+      <td>30000.0</td>
+      <td>0.587</td>
+      <td>0.814</td>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+      <td>6.000</td>
+    </tr>
+    <tr>
+      <th>inpatient_admissions</th>
+      <td>30000.0</td>
+      <td>0.415</td>
+      <td>0.683</td>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+      <td>6.000</td>
+    </tr>
+    <tr>
+      <th>care_mgmt_enrolled</th>
+      <td>30000.0</td>
+      <td>0.131</td>
+      <td>0.337</td>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>wearable_steps_avg</th>
+      <td>5513.0</td>
+      <td>7510.928</td>
+      <td>2033.829</td>
+      <td>1500.0</td>
+      <td>6155.800</td>
+      <td>7491.184</td>
+      <td>8882.002</td>
+      <td>15041.974</td>
+    </tr>
+    <tr>
+      <th>genai_triage_flag</th>
+      <td>30000.0</td>
+      <td>0.070</td>
+      <td>0.255</td>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>any_30d_readmit</th>
+      <td>30000.0</td>
+      <td>0.081</td>
+      <td>0.273</td>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>high_risk_flag</th>
+      <td>30000.0</td>
+      <td>0.112</td>
+      <td>0.315</td>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>total_cost</th>
+      <td>30000.0</td>
+      <td>3441.956</td>
+      <td>4184.343</td>
+      <td>0.0</td>
+      <td>546.224</td>
+      <td>1368.318</td>
+      <td>6068.622</td>
+      <td>38009.655</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 ## Interpretation — Descriptive statistics
 
 **What stands out.**  
-Utilization (ED and inpatient) and **total_cost** are right-skewed—typical in healthcare where a small share of patients drive spend. Physiologic variables (SBP/DBP, BMI) are stable; **HbA1c** has wider spread among diabetics.
+Utilization (ED and inpatient) and **total_cost** are right-skewed—typical in healthcare where a small share of patients drives spend. Physiologic variables (SBP/DBP, BMI) are stable; **HbA1c** varies more among diabetics.
 
 **What it means.**  
-Skew suggests robust summaries (medians/IQR) are more representative than means. When modelling **total_cost**, a GLM with **Gamma (log link)** or quantile regression often fits better than OLS.
+Skew suggests medians/IQRs are often more representative than means. For **total_cost**, consider GLM Gamma (log link) or quantile regression if you later extend beyond OLS.
 
 **Actions.**  
-Profile the **top-cost decile** each quarter; ensure case-management eligibility checks and post-discharge touchpoints are applied consistently. Track med adherence and access barriers for high-risk chronic patients.
+Profile the **top-cost decile** each quarter; ensure post-discharge touchpoints and care-mgmt eligibility checks are consistently applied. Track med adherence and access barriers for high-risk chronic patients.

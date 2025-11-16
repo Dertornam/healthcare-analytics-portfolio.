@@ -1,10 +1,30 @@
-# t-test — HbA1c in diabetes: care-mgmt vs not
-
-|    |   n_enrolled |   n_not_enrolled |   mean_enrolled |   mean_not_enrolled |   t_stat |   p_value |
-|---:|-------------:|-----------------:|----------------:|--------------------:|---------:|----------:|
-|  0 |         1437 |             5293 |          6.9809 |              7.0128 |  -1.6198 |    0.1054 |
-
-
+<h1>t-test — HbA1c in diabetes: care-mgmt vs not</h1>
+<div style='max-width:100%; overflow-x:auto; padding:6px; border:1px solid #e5e7eb; border-radius:8px;'>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n_enrolled</th>
+      <th>n_not_enrolled</th>
+      <th>mean_enrolled</th>
+      <th>mean_not_enrolled</th>
+      <th>t_stat</th>
+      <th>p_value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1437</td>
+      <td>5293</td>
+      <td>6.9809</td>
+      <td>7.0128</td>
+      <td>-1.6198</td>
+      <td>0.1054</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 ## Interpretation — t-test (HbA1c in diabetes: care-mgmt vs not)
 
 **What the test says.**  

@@ -1,21 +1,20 @@
 # Logistic regression: 30-day readmission
 
-Dependent variable: **any_30d_readmit** (0/1)
+<details>
+<summary><strong>Open full stats output</strong></summary>
 
-Predictors: age, diabetes_flag, heart_failure_flag, copd_flag, bmi, hba1c, outpatient_visits, ed_visits, inpatient_admissions, care_mgmt_enrolled, wearable_steps_avg, genai_triage_flag, high_risk_flag
-
-```
+<pre>
                            Logit Regression Results                           
 ==============================================================================
 Dep. Variable:        any_30d_readmit   No. Observations:                 5513
 Model:                          Logit   Df Residuals:                     5499
 Method:                           MLE   Df Model:                           13
 Date:                Sun, 16 Nov 2025   Pseudo R-squ.:                 0.04934
-Time:                        04:09:23   Log-Likelihood:                -1467.9
+Time:                        04:24:11   Log-Likelihood:                -1467.9
 converged:                       True   LL-Null:                       -1544.1
 Covariance Type:            nonrobust   LLR p-value:                 6.893e-26
 ========================================================================================
-                           coef    std err          z      P>|z|      [0.025      0.975]
+                           coef    std err          z      P&gt;|z|      [0.025      0.975]
 ----------------------------------------------------------------------------------------
 const                   -6.5667      0.766     -8.577      0.000      -8.067      -5.066
 age                      0.0318      0.003      9.715      0.000       0.025       0.038
@@ -32,8 +31,8 @@ wearable_steps_avg    3.511e-05   2.49e-05      1.412      0.158   -1.36e-05    
 genai_triage_flag       -0.2979      0.174     -1.708      0.088      -0.640       0.044
 high_risk_flag          -0.0056      0.193     -0.029      0.977      -0.383       0.372
 ========================================================================================
-```
-
+</pre>
+</details>
 
 ## Interpretation — Logistic regression (30-day readmission)
 

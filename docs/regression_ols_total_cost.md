@@ -1,23 +1,22 @@
 # OLS: total annual cost
 
-Dependent variable: **total_cost**
+<details>
+<summary><strong>Open full stats output</strong></summary>
 
-Predictors: age, bmi, hba1c, wearable_steps_avg, diabetes_flag, heart_failure_flag, copd_flag, outpatient_visits, ed_visits, inpatient_admissions, care_mgmt_enrolled, high_risk_flag
-
-```
+<pre>
                             OLS Regression Results                            
 ==============================================================================
 Dep. Variable:             total_cost   R-squared:                       0.960
 Model:                            OLS   Adj. R-squared:                  0.960
 Method:                 Least Squares   F-statistic:                 1.112e+04
 Date:                Sun, 16 Nov 2025   Prob (F-statistic):               0.00
-Time:                        04:09:23   Log-Likelihood:                -44710.
+Time:                        04:24:11   Log-Likelihood:                -44710.
 No. Observations:                5513   AIC:                         8.945e+04
 Df Residuals:                    5500   BIC:                         8.953e+04
 Df Model:                          12                                         
 Covariance Type:            nonrobust                                         
 ========================================================================================
-                           coef    std err          t      P>|t|      [0.025      0.975]
+                           coef    std err          t      P&gt;|t|      [0.025      0.975]
 ----------------------------------------------------------------------------------------
 const                 -201.3101    166.196     -1.211      0.226    -527.120     124.499
 age                     -1.2359      0.663     -1.863      0.063      -2.536       0.065
@@ -43,13 +42,13 @@ Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 [2] The condition number is large, 1.22e+05. This might indicate that there are
 strong multicollinearity or other numerical problems.
-```
-
+</pre>
+</details>
 
 ## Interpretation — OLS (total cost)
 
 **What the model says.**  
-Cost rises with utilization (**inpatient > ED > outpatient**) and clinical risk flags. Steps trend **negatively** with cost. Coefficients may look small per unit but accumulate over a year.
+Cost rises with utilization (**inpatient > ED > outpatient**) and with clinical risk flags. Steps trend **negatively** with cost. Coefficients may look small per unit but accumulate over a year.
 
 **What it means for finance & ops.**  
 A small group of **high utilizers** drives spend. Because costs are skewed, consider **GLM Gamma (log link)** or **quantile regression** for robustness.
