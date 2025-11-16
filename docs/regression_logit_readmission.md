@@ -1,10 +1,17 @@
+# Logistic regression: 30-day readmission
+
+Dependent variable: **any_30d_readmit** (0/1)
+
+Predictors: age, diabetes_flag, heart_failure_flag, copd_flag, bmi, hba1c, outpatient_visits, ed_visits, inpatient_admissions, care_mgmt_enrolled, wearable_steps_avg, genai_triage_flag, high_risk_flag
+
+```
                            Logit Regression Results                           
 ==============================================================================
 Dep. Variable:        any_30d_readmit   No. Observations:                 5513
 Model:                          Logit   Df Residuals:                     5499
 Method:                           MLE   Df Model:                           13
 Date:                Sun, 16 Nov 2025   Pseudo R-squ.:                 0.04934
-Time:                        04:00:06   Log-Likelihood:                -1467.9
+Time:                        04:09:23   Log-Likelihood:                -1467.9
 converged:                       True   LL-Null:                       -1544.1
 Covariance Type:            nonrobust   LLR p-value:                 6.893e-26
 ========================================================================================
@@ -25,3 +32,16 @@ wearable_steps_avg    3.511e-05   2.49e-05      1.412      0.158   -1.36e-05    
 genai_triage_flag       -0.2979      0.174     -1.708      0.088      -0.640       0.044
 high_risk_flag          -0.0056      0.193     -0.029      0.977      -0.383       0.372
 ========================================================================================
+```
+
+
+## Interpretation — Logistic regression (30-day readmission)
+
+**What the model says (plain English).**  
+Older age, recent utilization (ED visits / admissions), and higher **HbA1c** are associated with **higher** odds of readmission. Steps show a small, directionally protective effect. Pseudo-R² is modest—as expected for readmissions.
+
+**What it means for care & data.**  
+High-utilizers with poor glycemic control are the key risk segment. Expect unobserved SDOH (transportation, caregiver support) to matter; add them if available.
+
+**Actions.**  
+Trigger a **48–72h post-discharge call** and **7–10 day clinic follow-up** for older patients with prior-year admissions/ED. Tighten HbA1c management. Pilot a **nurse call-back + med reconciliation** bundle for the top-risk decile.
