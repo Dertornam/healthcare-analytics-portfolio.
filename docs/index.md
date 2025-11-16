@@ -8,19 +8,28 @@ title: Healthcare Analytics Portfolio (Anonymized)
 This portfolio demonstrates a 10-year (2015–2024) chronic-care dataset with descriptive analytics, correlations,
 **logistic regression for readmissions**, **OLS for total cost**, **ANOVA**, and reproducible charts via GitHub Actions.
 
-<div style="margin: 1rem 0;">
-  - <a class="port-btn" href="...">View on GitHub</a>
-+ <a class="btn" href="...">View on GitHub</a>
+<style>
+.port-btn{
+  display:inline-block;
+  padding:.6rem 1rem;
+  margin:.25rem .4rem 0 0;
+  border-radius:8px;
+  background:#0366d6;
+  color:#fff !important;
+  text-decoration:none !important;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 1px 2px rgba(0,0,0,.05);
+  font-weight:600;
+}
+.port-btn:hover{ filter:brightness(0.95); }
+</style>
 
-- <a class="port-btn" href="#projects">Explore My Projects</a>
-+ <a class="btn" href="#projects">Explore My Projects</a>
-
-- <a class="port-btn" href="resume.pdf">Résumé</a>
-+ <a class="btn" href="resume.pdf">Résumé</a>
-
-- <a class="port-btn" href="https://www.linkedin.com/in/derrick-dzormeku-mba-75288644">LinkedIn</a>
-+ <a class="btn" href="https://www.linkedin.com/in/derrick-dzormeku-mba-75288644">LinkedIn</a>
-</div>
+<p class="btn-row">
+  <a class="port-btn port-btn--light" href="...">View on GitHub</a>
+  <a class="port-btn port-btn--light" href="#projects">Explore My Projects</a>
+  <a class="port-btn port-btn--light" href="resume.pdf">Résumé</a>
+  <a class="port-btn port-btn--light" href="https://www.linkedin.com/in/derrick-dzormeku-mba-75288644">LinkedIn</a>
+</p>
 
 ---
 
