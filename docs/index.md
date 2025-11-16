@@ -55,8 +55,8 @@ This portfolio demonstrates a 10-year (2015–2024) chronic-care dataset with de
 ## <a name="analysis"></a>Statistical analysis
 - **Descriptive statistics (table):** [desc_stats.md](desc_stats.md)
 - **Correlation matrix:** [corr_matrix.md](corr_matrix.md)
-- **Logistic regression (readmit):** [regression_logit_readmission.md](regression_logit_readmission.md)
-- **OLS (total cost):** [regression_ols_total_cost.md](regression_ols_total_cost.md)
+- Logistic regression (readmit): [summary + interpretation](regression_logit_readmission.md)
+- OLS (total cost): [summary + interpretation](regression_ols_total_cost.md)
 - **ANOVA (year):** [anova_total_cost_by_year.md](anova_total_cost_by_year.md)
 - **t-test (HbA1c):** [ttest_hba1c_care_mgmt_diabetes.md](ttest_hba1c_care_mgmt_diabetes.md)
 
