@@ -107,9 +107,10 @@ Correlations are not causal; shared drivers (frailty, access, polypharmacy) can 
 Use correlations to **screen features** and set **reasonableness checks** (e.g., rising steps ↔ falling ED). Verify with multivariate models or pilots before acting.
 """))
 
-# ==========================================
+# =========================================
 # 3) LOGISTIC REGRESSION — 30-day readmission
-# ==========================================
+# =========================================
+# pick predictors present in your dataset
 logit_features = [
     "age","diabetes_flag","heart_failure_flag","copd_flag","bmi","hba1c",
     "outpatient_visits","ed_visits","inpatient_admissions","care_mgmt_enrolled",
@@ -121,7 +122,13 @@ y = df_logit["any_30d_readmit"].astype(int)
 X = sm.add_constant(df_logit[logit_features])
 logit_res = sm.Logit(y, X).fit(disp=0)
 
-logit_interp = textwrap.dedent("""
+with open(os.path.join(DOCS_DIR, "regression_logit_readmission.md"), "w", encoding="utf-8") as f:
+    f.write("# Logistic regression: 30-day readmission\n\n")
+    f.write("Dependent variable: **any_30d_readmit** (0/1)\n\n")
+    f.write("Predictors: " + ", ".join(logit_features) + "\n\n")
+    f.write("```\n" + str(logit_res.summary()) + "\n```\n")
+
+append_md("regression_logit_readmission.md", textwrap.dedent("""
 ## Interpretation — Logistic regression (30-day readmission)
 
 **What the model says (plain English).**  
@@ -132,18 +139,11 @@ High-utilizers with poor glycemic control are the key risk segment. Expect unobs
 
 **Actions.**  
 Trigger a **48–72h post-discharge call** and **7–10 day clinic follow-up** for older patients with prior-year admissions/ED. Tighten HbA1c management. Pilot a **nurse call-back + med reconciliation** bundle for the top-risk decile.
-""")
+"""))
 
-write_details_block(
-    "regression_logit_readmission.md",
-    "Logistic regression: 30-day readmission",
-    str(logit_res.summary()),
-    logit_interp
-)
-
-# ============================
-# 4) OLS — TOTAL ANNUAL COST
-# ============================
+# =========================================
+# 4) OLS — TOTAL COST
+# =========================================
 ols_features = [
     "age","bmi","hba1c","wearable_steps_avg","diabetes_flag","heart_failure_flag",
     "copd_flag","outpatient_visits","ed_visits","inpatient_admissions","care_mgmt_enrolled",
@@ -155,41 +155,43 @@ y_cost = df_ols["total_cost"]
 X_cost = sm.add_constant(df_ols[ols_features])
 ols_res = sm.OLS(y_cost, X_cost).fit()
 
-ols_interp = textwrap.dedent("""
+with open(os.path.join(DOCS_DIR, "regression_ols_total_cost.md"), "w", encoding="utf-8") as f:
+    f.write("# OLS: total annual cost\n\n")
+    f.write("Dependent variable: **total_cost**\n\n")
+    f.write("Predictors: " + ", ".join(ols_features) + "\n\n")
+    f.write("```\n" + str(ols_res.summary()) + "\n```\n")
+
+append_md("regression_ols_total_cost.md", textwrap.dedent("""
 ## Interpretation — OLS (total cost)
 
 **What the model says.**  
-Cost rises with utilization (**inpatient > ED > outpatient**) and with clinical risk flags. Steps trend **negatively** with cost. Coefficients may look small per unit but accumulate over a year.
+Cost rises with utilization (**inpatient > ED > outpatient**) and clinical risk flags. Steps trend **negatively** with cost. Coefficients may look small per unit but accumulate over a year.
 
 **What it means for finance & ops.**  
 A small group of **high utilizers** drives spend. Because costs are skewed, consider **GLM Gamma (log link)** or **quantile regression** for robustness.
 
 **Actions.**  
 Stand up a **High-Utilizer Review**; expand **telehealth/home monitoring** for chronic cohorts with frequent ED use. Track ROI with matched pre/post cohorts and monthly dashboards.
-""")
+"""))
 
-write_details_block(
-    "regression_ols_total_cost.md",
-    "OLS: total annual cost",
-    str(ols_res.summary()),
-    ols_interp
-)
-
-# ===========================================
-# 5) ANOVA — TOTAL COST BY YEAR (simple F-test)
-# ===========================================
-if {"year","total_cost"} <= set(df.columns):
+# =========================================
+# 5) ANOVA — TOTAL COST BY YEAR
+# =========================================
+if "year" in df.columns:
     anova_df = df.dropna(subset=["total_cost","year"]).copy()
     groups = [grp["total_cost"].values for _, grp in anova_df.groupby("year")]
     f_stat, p_val = stats.f_oneway(*groups)
+
+    # Build a small table for the page
     anova_tbl = pd.DataFrame({
-        "k_groups":[len(groups)], "N_total":[len(anova_df)],
-        "F_stat":[round(float(f_stat),4)], "p_value":[float(p_val)]
+        "k_groups":[len(groups)],
+        "N_total":[len(anova_df)],
+        "F_stat":[round(f_stat,4)],
+        "p_value":[p_val]
     })
-    # HTML table + interpretation (no truncation)
-    write_html_table(anova_tbl, "anova_total_cost_by_year.md", "ANOVA — total cost by year")
-    with open(os.path.join(DOCS_DIR, "anova_total_cost_by_year.md"), "a", encoding="utf-8") as f:
-        f.write(textwrap.dedent("""
+    write_md_table(anova_tbl, "anova_total_cost_by_year.md", title="ANOVA — total cost by year")
+
+    append_md("anova_total_cost_by_year.md", textwrap.dedent("""
 ## Interpretation — ANOVA (total cost by year)
 
 **What the test says.**  
@@ -202,9 +204,9 @@ Year effects blend clinical need and macro factors (rates, coding, policy). Don�
 Follow with **post-hoc** comparisons (e.g., Tukey) and then a **multivariate GLM** including utilization and risk flags to isolate year effects.
 """))
 
-# ==================================================
+# =========================================
 # 6) T-TEST — HbA1c IN DIABETES: CARE MGMT VS NONE
-# ==================================================
+# =========================================
 if {"diabetes_flag","hba1c","care_mgmt_enrolled"} <= set(df.columns):
     sub = df[(df["diabetes_flag"]==1) & ~df["hba1c"].isna() & ~df["care_mgmt_enrolled"].isna()].copy()
     a = sub.loc[sub["care_mgmt_enrolled"]==1, "hba1c"].values
@@ -215,10 +217,10 @@ if {"diabetes_flag","hba1c","care_mgmt_enrolled"} <= set(df.columns):
         "mean_enrolled":[np.nanmean(a)], "mean_not_enrolled":[np.nanmean(b)],
         "t_stat":[t_stat], "p_value":[p_val]
     }).round(4)
-    write_html_table(t_tbl, "ttest_hba1c_care_mgmt_diabetes.md",
-                     "t-test — HbA1c in diabetes: care-mgmt vs not")
-    with open(os.path.join(DOCS_DIR, "ttest_hba1c_care_mgmt_diabetes.md"), "a", encoding="utf-8") as f:
-        f.write(textwrap.dedent("""
+    write_md_table(t_tbl, "ttest_hba1c_care_mgmt_diabetes.md",
+                   title="t-test — HbA1c in diabetes: care-mgmt vs not")
+
+    append_md("ttest_hba1c_care_mgmt_diabetes.md", textwrap.dedent("""
 ## Interpretation — t-test (HbA1c in diabetes: care-mgmt vs not)
 
 **What the test says.**  
@@ -231,4 +233,4 @@ Some selection bias is likely (motivated patients enroll). Still, direction alig
 Scale care-mgmt for under-served cohorts; add **titration workflows** and meter reminders. Track **HbA1c change** at 3 & 6 months with a stepped-wedge rollout.
 """))
 
-print("All analysis pages written to /docs (HTML tables + collapsible stats).")
+print("Wrote analysis outputs to:", DOCS_DIR)
