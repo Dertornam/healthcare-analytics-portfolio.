@@ -53,8 +53,8 @@ This portfolio demonstrates a 10-year (2015–2024) chronic-care dataset with de
 ---
 
 ## <a name="analysis"></a>Statistical analysis
-- **Descriptive statistics:** [`desc_stats.csv`](./desc_stats.csv)  
-- **Correlations:** [`corr_matrix.csv`](./corr_matrix.csv) • [`corr_heatmap.png`](./corr_heatmap.png)  
+- **Descriptive statistics (table):** [desc_stats.md](desc_stats.md)   
+- **Correlation matrix (table):** [corr_matrix.md](corr_matrix.md) • [`corr_heatmap.png`](./corr_heatmap.png)  
 - **Regression (readmissions, logistic):** [`regression_logit_readmission.md`](./regression_logit_readmission.md)  
 - **Regression (total cost, OLS):** [`regression_ols_total_cost.md`](./regression_ols_total_cost.md)  
 - **ANOVA (cost by insurance):** [`anova_total_cost_by_insurance.md`](./anova_total_cost_by_insurance.md)  
