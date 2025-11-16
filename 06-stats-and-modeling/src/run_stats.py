@@ -61,21 +61,6 @@ plt.title('HbA1c vs readmission rate'); plt.xlabel('HbA1c (binned)'); plt.ylabel
 save_fig(os.path.join(figs,'hba1c_vs_readmit.png'))
 
 num = df.select_dtypes(include=[np.number]).drop(columns=['patient_id'], errors='ignore')
-# --- Descriptives (nice table) ---
-desc = num.describe().T
-desc.to_csv(os.path.join(docs, 'desc_stats.csv'))
-with open(os.path.join(docs, 'desc_stats.md'), 'w') as f:
-    f.write("# Descriptive statistics\n\n")
-    f.write(desc.round(3).to_markdown())
-    f.write("\n")
-
-# --- Correlation matrix (nice table) ---
-corr = num.corr()
-corr.to_csv(os.path.join(docs, 'corr_matrix.csv'))
-with open(os.path.join(docs, 'corr_matrix.md'), 'w') as f:
-    f.write("# Correlation matrix\n\n")
-    f.write(corr.round(3).to_markdown())
-    f.write("\n")
 num.describe().T.to_csv(os.path.join(docs,'desc_stats.csv'))
 num.corr().to_csv(os.path.join(docs,'corr_matrix.csv'))
 
