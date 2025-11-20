@@ -24,12 +24,25 @@ This portfolio demonstrates a 10-year (2015–2024) chronic-care dataset with de
 .port-btn:hover{ filter:brightness(0.95); }
 </style>
 
-<p class="btn-row">
-  <a class="port-btn port-btn--light" href="...">View on GitHub</a>
-  <a class="port-btn port-btn--light" href="#projects">Explore My Projects</a>
-  <a class="port-btn port-btn--light" href="resume.pdf">Résumé</a>
-  <a class="port-btn port-btn--light" href="https://www.linkedin.com/in/derrick-dzormeku-mba-75288644">LinkedIn</a>
-</p>
+<div style="margin: 1rem 0;">
+  <a class="port-btn" href="{{ site.github.repository_url }}">View on GitHub</a>
+  <a class="port-btn" href="#projects">Explore My Projects</a>
+  <a class="port-btn" href="{{ '/resume.pdf' | relative_url }}">Download Résumé</a>
+  <a class="port-btn" href="https://www.linkedin.com/in/derrick-dzormeku-mba-75288644" target="_blank" rel="noopener">LinkedIn</a>
+</div>
+
+---
+
+## Professional Summary
+> Strategic and customer-centered Data Analyst with over 5 years of experience leading data-driven initiatives. Proficient in Python, SPSS, R, Power BI and Tableau, with a proven record of developing scalable insights that enhance user engagement, satisfaction, and program effectiveness. Experienced in sentiment analysis, survey management, and cross-functional collaboration to drive business impact. Passionate about crafting data solutions that improve experiences and reduce churn.
+
+**Keywords:** data analytics, Python, SPSS, R, Tableau, Power BI, predictive modeling, survey analytics, reporting automation, GitHub Actions, reproducible workflows
+
+---
+
+## Why this Portfolio?
+I turn complex, real-world data into **clear actionable insight for decision making**. Each project shows a reproducible pipeline:
+**Raw Data → Cleaning → Analysis/Models → Visualization → Insight → Action.**
 
 ---
 
