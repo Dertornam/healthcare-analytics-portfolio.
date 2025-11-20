@@ -30,7 +30,6 @@ genai_triage_flag       -0.2979      0.174     -1.708      0.088      -0.640    
 high_risk_flag          -0.0056      0.193     -0.029      0.977      -0.383       0.372
 ========================================================================================
 </pre>
-</details>
 
 ## Interpretation — Logistic regression (30-day readmission)
 
