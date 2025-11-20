@@ -1,7 +1,5 @@
 # Logistic regression: 30-day readmission
 
-<details>
-<summary><strong>Open full stats output</strong></summary>
 
 <pre>
                            Logit Regression Results                           
