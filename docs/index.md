@@ -104,3 +104,64 @@ I turn complex, real-world data into **clear actionable insight for decision mak
 ## Case studies & trends
 See **[case studies & future trends](./case_studies.html)** for a concise briefing on analytics types, operational wins,
 AI adoption, and implementation challenges in healthcare analytics.
+
+---
+
+## Certifications & Education
+**Certifications:**  
+- Google Data Analytics Professional Certificate  
+- Google Analytics Individual Qualification  
+- WWC Group Design Standard (IES)  
+- CITI Program – Social & Behavioral Research (valid)
+
+**Education:**  
+- MBA, Business Data Analytics — Mount Vernon Nazarene University  
+- MBA, Organizational Management — Mount Vernon Nazarene University  
+- BSc, Business Administration (Marketing) — Evangelical Presbyterian University College
+
+---
+
+## Publications & Conferences
+- *Devising a Holistic Data Dashboard* – district collaboration for schoolwide improvement  
+- *Understanding School Principals’ Perspectives on Using Data*  
+- Conference sessions: UCEA (2022 & 2023), AERA (2024)
+
+> Ask me about continuous improvement, assessments, survey measurement, and data-informed culture.
+
+---
+
+## Impact Metrics (examples)
+- Automated reporting reduced manual compilation by **10%**.  
+- Increased survey response rates by **16%** via process improvements.  
+- Cut analysis turnaround from **2 months to 3 weeks** with reproducible workflows.
+
+---
+<style>
+/* simple, theme-independent buttons */
+.port-btn{
+  display:inline-block;
+  padding:.6rem 1rem;
+  margin:.25rem .4rem 0 0;
+  border-radius:8px;
+  background:#0366d6;       /* GitHub blue */
+  color:#fff !important;
+  text-decoration:none !important;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 1px 2px rgba(0,0,0,.05);
+  font-weight:600;
+}
+.port-btn:hover{ filter:brightness(0.95); }
+</style>
+
+## Contact & links
+
+<a class="port-btn"
+   href="https://mail.google.com/mail/?view=cm&fs=1&to=d.double76@icloud.com&su=Portfolio%20inquiry%20%E2%80%93%20Derrick%20Dzormeku&body=Hi%20Derrick,%0D%0A%0D%0AI%27m%20reaching%20out%20about%20your%20analytics%20portfolio.%20Could%20we%20schedule%20a%20brief%20call%3F"
+   target="_blank" rel="noopener">
+  Email via Gmail
+</a>
+  <a class="port-btn" href="https://www.linkedin.com/in/derrick-dzormeku-mba-75288644" target="_blank" rel="noopener">LinkedIn</a>
+  <a class="port-btn" href="{{ site.github.repository_url }}">GitHub repo</a>
+  <a class="port-btn" href="{{ '/resume.pdf' | relative_url }}">Download résumé</a>
+
+<small>Site theme powered by GitHub Pages. All datasets shown here are anonymized.</small>
