@@ -4,7 +4,6 @@ title: Healthcare Analytics Portfolio (Anonymized)
 
 # Healthcare Analytics Portfolio (Anonymized)
 
-**Data Analyst** specializing in end-to-end analytics, survey & operational insights, and reproducible reporting.
 This portfolio demonstrates a 10-year (2015–2024) chronic-care dataset with descriptive analytics, correlations,
 **logistic regression for readmissions**, **OLS for total cost**, **ANOVA**, and reproducible charts via GitHub Actions.
 
