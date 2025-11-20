@@ -1,8 +1,10 @@
 ---
 title: Healthcare Analytics Portfolio (Anonymized)
+layout: default
 ---
 
 # Healthcare Analytics Portfolio (Anonymized)
+End-to-end analysis, Dashboards & Automated reporting
 
 This portfolio demonstrates a 10-year (2015–2024) chronic-care dataset with descriptive analytics, correlations,
 **logistic regression for readmissions**, **OLS for total cost**, **ANOVA**, and reproducible charts via GitHub Actions.
@@ -36,6 +38,16 @@ This portfolio demonstrates a 10-year (2015–2024) chronic-care dataset with de
 > Strategic and customer-centered Data Analyst with over 5 years of experience leading data-driven initiatives. Proficient in Python, SPSS, R, Power BI and Tableau, with a proven record of developing scalable insights that enhance user engagement, satisfaction, and program effectiveness. Experienced in sentiment analysis, survey management, and cross-functional collaboration to drive business impact. Passionate about crafting data solutions that improve experiences and reduce churn.
 
 **Keywords:** data analytics, Python, SPSS, R, Tableau, Power BI, predictive modeling, survey analytics, reporting automation, GitHub Actions, reproducible workflows
+
+---
+
+## Technical Skills
+**Programming:** Python, R, SQL  
+**Libraries:** Pandas, NumPy, Matplotlib, Seaborn, Statsmodels, scikit-learn  
+**Visualization:** Tableau, Power BI, Plotly  
+**Workflow:** Git, GitHub Actions, Markdown reporting, reproducible pipelines  
+**Statistics:** Descriptives, correlation, regression, ANOVA, predictive modeling  
+**Survey tools:** Qualtrics, SPSS
 
 ---
 
